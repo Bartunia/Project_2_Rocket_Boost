@@ -5532,18 +5532,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2558633045176543196, guid: 5768223bf81156e41a161ed71329932c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2558633045176543196, guid: 5768223bf81156e41a161ed71329932c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2558633045176543196, guid: 5768223bf81156e41a161ed71329932c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2558633045176543196, guid: 5768223bf81156e41a161ed71329932c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
       objectReference: {fileID: 0}
@@ -5583,17 +5571,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2558633045176543196, guid: 5768223bf81156e41a161ed71329932c, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2939099714645310822, guid: 5768223bf81156e41a161ed71329932c, type: 3}
       propertyPath: m_Name
       value: Obstacle Round
-      objectReference: {fileID: 0}
-    - target: {fileID: 3731579661324197043, guid: 5768223bf81156e41a161ed71329932c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
