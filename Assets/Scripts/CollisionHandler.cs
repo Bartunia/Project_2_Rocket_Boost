@@ -19,19 +19,18 @@ public class CollisionHandler : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
-        if (movement.enabled == true)
+        if (!movement.enabled) { return; }
+        
+        switch (collision.gameObject.tag)
         {
-            switch (collision.gameObject.tag)
-            {
-                case "Friendly":
-                    break;
-                case "Finish":
-                    StartFinishSequence();
-                    break;
-                default:
-                    StartCrashSequence();
-                    break;
-            }
+            case "Friendly":
+                break;
+            case "Finish":
+                StartFinishSequence();
+                break;
+            default:
+                StartCrashSequence();
+                break;
         }
     }
 
@@ -39,6 +38,7 @@ public class CollisionHandler : MonoBehaviour
     {
         movement.enabled = false;
         Debug.Log("Level Completed!");
+        audioSource.Stop();
         audioSource.PlayOneShot(finishSound);
         Invoke("NextLevel", delay);
     }
@@ -47,6 +47,7 @@ public class CollisionHandler : MonoBehaviour
     {
         movement.enabled = false;
         Debug.Log("You Crashed!");
+        audioSource.Stop();
         audioSource.PlayOneShot(crashSound);
         Invoke("ReloadLevel", delay);
     }

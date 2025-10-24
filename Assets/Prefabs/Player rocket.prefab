@@ -99,7 +99,7 @@ MonoBehaviour:
       m_Action: Rotation
       m_Flags: 8
     m_Flags: 0
-  thrustStrength: 1000
+  thrustStrength: 2000
   rotationStrength: 100
   mainEngineSound: {fileID: 8300000, guid: 1b253bbb0938a9848bd9f3a723ace57f, type: 3}
 --- !u!114 &6563304834405088751
@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c80d18e22aae204889b8bf602e5a84a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollisionHandler
+  delay: 3
   crashSound: {fileID: 8300000, guid: bc286f44fbeb80c4bba982f6a17f012c, type: 3}
   finishSound: {fileID: 8300000, guid: fc07bda0f375d7d4fb3b83656011d92c, type: 3}
 --- !u!54 &7727912802432764002
@@ -124,9 +125,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5871416718747587842}
   serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 2
+  m_Drag: 0.2
+  m_AngularDrag: 5
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
