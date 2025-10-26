@@ -4,16 +4,19 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
-    AudioSource audioSource;
     Movement movement;
+    AudioSource audioSource;
+
     [SerializeField] float delay = 1f;
-    [SerializeField] AudioClip crashSound;
-    [SerializeField] AudioClip finishSound;
+    [SerializeField] AudioClip crashSFX;
+    [SerializeField] AudioClip successSFX;
+    [SerializeField] ParticleSystem crashParticles;
+    [SerializeField] ParticleSystem successParticles;
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         movement = GetComponent<Movement>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -39,7 +42,8 @@ public class CollisionHandler : MonoBehaviour
         movement.enabled = false;
         Debug.Log("Level Completed!");
         audioSource.Stop();
-        audioSource.PlayOneShot(finishSound);
+        audioSource.PlayOneShot(successSFX);
+        successParticles.Play();
         Invoke("NextLevel", delay);
     }
 
@@ -48,7 +52,8 @@ public class CollisionHandler : MonoBehaviour
         movement.enabled = false;
         Debug.Log("You Crashed!");
         audioSource.Stop();
-        audioSource.PlayOneShot(crashSound);
+        audioSource.PlayOneShot(crashSFX);
+        crashParticles.Play();
         Invoke("ReloadLevel", delay);
     }
 
