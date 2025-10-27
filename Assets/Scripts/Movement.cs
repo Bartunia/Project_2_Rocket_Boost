@@ -3,15 +3,23 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
+    // Input Actions
     [SerializeField] InputAction thrust;
     [SerializeField] InputAction rotation;
+
+    // Movement parameters
     [SerializeField] float thrustStrength = 1000f;
     [SerializeField] float rotationStrength = 100f;
+
+    // Audio
     [SerializeField] AudioClip mainEngineSound;
+    
+    // Particle Systems 
     [SerializeField] ParticleSystem mainEngineParticles;
     [SerializeField] ParticleSystem leftThrusterParticles;
     [SerializeField] ParticleSystem rightThrusterParticles;
 
+    // Components
     Rigidbody rb;
     AudioSource audioSource;
 
@@ -38,17 +46,22 @@ public class Movement : MonoBehaviour
     {
         if (thrust.IsPressed())
         {
-            rb.AddRelativeForce(Vector3.up * Time.fixedDeltaTime * thrustStrength);
-            mainEngineParticles.Play();
-            if (!audioSource.isPlaying)
-            {
-                audioSource.PlayOneShot(mainEngineSound);
-            }
+            Thrusting();
         }
         else
         {
             audioSource.Stop();
             mainEngineParticles.Stop();
+        }
+    }
+
+    private void Thrusting()
+    {
+        rb.AddRelativeForce(Vector3.up * Time.fixedDeltaTime * thrustStrength);
+        mainEngineParticles.Play();
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(mainEngineSound);
         }
     }
 
